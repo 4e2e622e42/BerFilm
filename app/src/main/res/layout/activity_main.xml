@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+   <data>
+
+   </data>
+
+
+   <com.mindinventory.midrawer.MIDrawerView
+       android:id="@+id/drawer_layout"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:fitsSystemWindows="true"
+       app:sliderType="doorIn"
+       tools:openDrawer="start">
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:background="#202020"
+          tools:context=".MainActivity">
+
+         <androidx.fragment.app.FragmentContainerView
+             android:id="@+id/nav_host_fragment"
+             android:name="androidx.navigation.fragment.NavHostFragment"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             app:defaultNavHost="true"
+             app:layout_constraintBottom_toTopOf="@+id/smooth_bottombar"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintHorizontal_bias="1.0"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:navGraph="@navigation/nav_graph"
+             />
+
+         <me.ibrahimsn.lib.SmoothBottomBar
+             android:id="@+id/smooth_bottombar"
+             style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+             android:layout_width="match_parent"
+             android:layout_height="60dp"
+             android:contentDescription="@string/app_name"
+             app:backgroundColor="#333533"
+             app:iconSize="20dp"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:menu="@menu/smooth_bottombar_menu"
+             app:textSize="14sp" />
+
+      </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+      <com.google.android.material.navigation.NavigationView
+          android:id="@+id/navigation_view"
+          android:layout_width="200dp"
+          android:layout_height="match_parent"
+          android:fitsSystemWindows="true"
+          android:layout_gravity="start"
+          app:menu="@menu/smooth_bottombar_menu"
+          android:background="@drawable/moviename_bg"
+          app:itemTextColor="@color/white"
+          app:itemIconTint="@color/white"
+          app:headerLayout="@layout/drawerlayoutheader"
+
+          />
+
+
+
+   </com.mindinventory.midrawer.MIDrawerView>
+
+
+
+</layout>
